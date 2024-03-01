@@ -9,6 +9,7 @@ fun main() {
 
     getPuzzleAnswer(data, 2020)
     getPuzzleAnswerPartTwo(data, 2020)
+
 }
 
  fun readFile(fileName: String): List<Int> =
@@ -25,6 +26,7 @@ fun main() {
         }
     }
 }
+
 
  fun getPuzzleAnswerPartTwo(list: List<Int>, sum: Int) {
     for (i in list.indices) {
