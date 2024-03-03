@@ -1,41 +1,37 @@
 package day_1
 
-import java.io.File
+import FileReader
 
 fun main() {
 
-    val fileName = "src\\main\\kotlin\\day_1\\PuzzleInput.txt";
-    val data = readFile(fileName);
-
-    getPuzzleAnswer(data, 2020)
-    getPuzzleAnswerPartTwo(data, 2020)
+    val data = puzzleInput()
+    println(getProduct(data))
+    println(getProductPartTwo(data))
 
 }
 
- fun readFile(fileName: String): List<Int> =
-    File(fileName).bufferedReader()
-        .readLines()
-        .map { it.toInt() }
+fun puzzleInput(): List<Int> = FileReader.read("src\\main\\kotlin\\day_1\\PuzzleInput.txt").map { it.toInt() }
 
- fun getPuzzleAnswer(list: List<Int>, sum: Int) {
+fun getProduct(list: List<Int>): Int {
     for (i in list.indices) {
         for (j in i + 1..<list.size) {
-            if (list[i] + list[j] == sum) {
-                println("Puzzle Answer: ${list[i] * list[j]}")
+            if (list[i] + list[j] == 2020) {
+                return (list[i] * list[j])
             }
         }
     }
+    return -1
 }
 
-
- fun getPuzzleAnswerPartTwo(list: List<Int>, sum: Int) {
+fun getProductPartTwo(list: List<Int>): Long {
     for (i in list.indices) {
-        for (j in i + 1..< list.size) {
+        for (j in i + 1..<list.size) {
             for (k in j + 1..<list.size) {
-                if (list[i] + list[j] + list[k] == sum) {
-                    println("Puzzle Answer Part Two: ${list[i] * list[j] * list[k]}")
+                if (list[i] + list[j] + list[k] == 2020) {
+                    return (list[i] * list[j] * list[k]).toLong()
                 }
             }
         }
     }
+    return -1
 }

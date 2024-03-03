@@ -1,17 +1,16 @@
 package day_3
 
-import java.io.File
+import FileReader
 
 fun main() {
 
     println(countTrees())
-
 }
 
-fun countTrees(): Int {
-    val fileName = "src\\main\\kotlin\\day_3\\PuzzleInput.txt"
-    val map = readFile(fileName)
+fun puzzleInput(): List<String> = FileReader.read("src\\main\\kotlin\\day_3\\PuzzleInput.txt")
 
+fun countTrees(): Int {
+    val map = puzzleInput()
     val tree = '#'
     val length = map[0].length
     var treeCounter = 0
@@ -26,6 +25,3 @@ fun countTrees(): Int {
     }
     return treeCounter
 }
-
-
-fun readFile(fileName: String): List<String> = File(fileName).bufferedReader().readLines()

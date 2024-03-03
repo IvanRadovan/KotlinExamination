@@ -8,8 +8,7 @@ fun main() {
 }
 
 fun slope(right: Int, down: Int): Long {
-    val fileName = "src\\main\\kotlin\\day_3\\PuzzleInput.txt"
-    val map = readFile(fileName)
+    val map = puzzleInput()
 
     val tree = '#'
     val length = map[0].length

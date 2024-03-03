@@ -1,20 +1,18 @@
 package day_2
 
-import java.io.File
+import FileReader
 import java.util.regex.Pattern
-
 
 fun main() {
 
     println(validPasswordCount())
     println(validPasswordCountPartTwo())
-
-
 }
 
+fun puzzleInput(): List<String> = FileReader.read("src\\main\\kotlin\\day_2\\PuzzleInput.txt")
 
 fun validPasswordCount(): Int {
-    val lines = readFile()
+    val lines = puzzleInput()
     var result = 0
     for (line in lines) {
         val pattern = Pattern.compile("^(\\d+)-(\\d+) (\\w): (\\w+)$")
@@ -35,7 +33,7 @@ fun validPasswordCount(): Int {
 }
 
 fun validPasswordCountPartTwo(): Int {
-    val lines = readFile()
+    val lines = puzzleInput()
     var result = 0
     for (line in lines) {
         val pattern = Pattern.compile("^(\\d+)-(\\d+) (\\w): (\\w+)$")
@@ -54,6 +52,4 @@ fun validPasswordCountPartTwo(): Int {
     return result
 }
 
-fun readFile(): List<String> = File("src\\main\\kotlin\\day_2\\PuzzleInput.txt")
-    .bufferedReader()
-    .readLines()
+

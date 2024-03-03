@@ -1,20 +1,21 @@
 package day_3
 
+import FileReader
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 import java.nio.file.Paths
 import kotlin.io.path.exists
 
-class DayThreeKtTest {
+class DayThreeTest {
 
-    private val fileName = "src\\main\\kotlin\\day_3\\PuzzleInput.txt"
-    private val data = readFile(fileName)
+    private val path = "src\\main\\kotlin\\day_3\\PuzzleInput.txt"
+    private val data = FileReader.read(path)
 
 
     @Test
     fun fileExists() {
-        assertTrue(Paths.get(fileName).exists())
+        assertTrue(Paths.get(path).exists())
     }
 
     @Test
@@ -24,7 +25,7 @@ class DayThreeKtTest {
     }
 
     private fun testSlope(right: Int, down: Int): Long {
-        val testMap = readFile("src\\test\\kotlin\\day_3\\TestInput.txt")
+        val testMap = FileReader.read("src\\test\\kotlin\\day_3\\TestInput.txt")
         val length = testMap[0].length
         var treeCounter = 0L
         var j = 0

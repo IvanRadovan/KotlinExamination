@@ -1,5 +1,6 @@
 package day_2
 
+import FileReader
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -7,10 +8,10 @@ import java.nio.file.Paths
 import java.util.regex.Pattern
 import kotlin.io.path.exists
 
-class DayTwoKtTest {
+class DayTwoTest {
 
-    private val fileName = "src\\main\\kotlin\\day_2\\PuzzleInput.txt"
-    private val data = readFile()
+    private val path = "src\\main\\kotlin\\day_2\\PuzzleInput.txt"
+    private val data = FileReader.read(path)
     private val inputTest = "6-14 f: fffdxmfffjfffmffff"
     private val startTest = 6
     private val endTest = 14
@@ -19,7 +20,7 @@ class DayTwoKtTest {
 
     @Test
     fun fileExists() {
-        assertTrue(Paths.get(fileName).exists())
+        assertTrue(Paths.get(path).exists())
     }
 
     @Test
@@ -65,6 +66,16 @@ class DayTwoKtTest {
         // 1-3 a: abcde
         val validPassword = "abcde"
         assertTrue((validPassword[1 - 1] == 'a') xor (validPassword[3 - 1] == 'a'))
+    }
+
+    @Test
+    fun inRangeCountTest(){
+        assertEquals(inRangeCount(), 500)
+    }
+
+    @Test
+    fun inPositionCountTest(){
+        assertEquals(inPositionCount(), 313)
     }
 
 }
