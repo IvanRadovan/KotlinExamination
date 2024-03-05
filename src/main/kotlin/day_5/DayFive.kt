@@ -3,25 +3,6 @@ package day_5
 
 fun main() {
 
-
-    val s = "FBFBBFFRLR"
-    val firstBit = s.substring(0,7)
-    val secondBit = s.substring(7)
-
-
-    var row = binarySearch(firstBit, 0, 127)
-    var column = binarySearch(secondBit, 0, 7)
-
-    println(row)
-    println(column)
-
-//    val id = (row * 8 + column)
-//    println(id)
-
-}
-
-fun binarySearch(seat: String, start: Int, end: Int): Int {
-
     // Start by considering the whole range, rows 0 through 127.
 
     //F means to take the lower half, keeping rows 0 through 63.
@@ -32,21 +13,37 @@ fun binarySearch(seat: String, start: Int, end: Int): Int {
     //F keeps rows 44 through 45.
     //The final F keeps the lower of the two, row 44.
 
-    var mutableStart = start
-    var mutableEnd = end
-    var list: List<Int> = (start..end).toMutableList()
+    val path = "src\\main\\kotlin\\day_5\\PuzzleInput"
+    var list = FileReader.read(path)
 
-    for (char in seat) {
-        val mid = start + (end - start) / 2
-        if (char == 'F') {
-            mutableEnd = mid
-            list = list.dropWhile { it > mutableEnd }
-        } else if (char == 'B') {
-            list = list.dropWhile { it < mutableStart }
-            mutableStart = mid + 1
+    list.map { it.seatId() }
+//    println(list.map { it.seatId() }.sortedDescending()[0])
+
+}
+
+fun String.seatId(): Int {
+    var rowCode = this.substring(0, 7)
+    var columnCode = this.substring(7)
+
+    var row = partitioning(rowCode, 0, 127)
+    var column = partitioning(columnCode, 0, 7)
+
+    return (row * 8) + column
+}
+
+
+
+
+fun partitioning(seatCode: String, start: Int, end: Int): Int {
+    var startCopy = start
+    var endCopy = end
+    for (char in seatCode) {
+        val mid = startCopy + (endCopy - startCopy) / 2
+        if ((char == 'F').or(char == 'L')) {
+            endCopy = mid
+        } else if ((char == 'B').or(char == 'R')) {
+            startCopy = mid + 1
         }
     }
-
-    println(list)
-    return -1;
+    return startCopy
 }
