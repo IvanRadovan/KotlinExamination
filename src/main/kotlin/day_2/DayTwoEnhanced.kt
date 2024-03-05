@@ -19,10 +19,9 @@ fun inRangeCount(): Int = puzzleInput()
 
 fun inPositionCount(): Int = puzzleInput()
         .map{ s -> getPassword(s) }
-        .count { (it.password[it.range.first-1] == it.character) xor (it.password[it.range.last-1] == it.character)  }
+        .count { (it.password[it.range.first - 1] == it.character) xor (it.password[it.range.last - 1] == it.character) }
 
 fun main() {
-
     println(inRangeCount())
     println(inPositionCount())
 }

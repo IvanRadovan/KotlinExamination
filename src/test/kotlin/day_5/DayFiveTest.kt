@@ -5,17 +5,6 @@ import org.junit.jupiter.api.Test
 
 class DayFiveTest {
 
-
-
-    //F means to take the lower half, keeping rows 0 through 63.
-    //B means to take the upper half, keeping rows 32 through 63.
-    //F means to take the lower half, keeping rows 32 through 47.
-    //B means to take the upper half, keeping rows 40 through 47.
-    //B keeps rows 44 through 47.
-    //F keeps rows 44 through 45.
-    //The final F keeps the lower of the two, row 44.
-
-
     @Test
     fun substringTest() {
         val code = "FBFBBFFRLR"
@@ -38,5 +27,13 @@ class DayFiveTest {
     @Test
     fun getIdTest() {
         assertEquals(357, "FBFBBFFRLR".seatId())
+    }
+
+    @Test
+    fun missingSeatTest() {
+        val list = listOf(1, 2, 3, 4, 5, 7, 8, 9)
+        val missingNumber = missingSeat(list)
+
+        assertEquals(6, missingNumber)
     }
 }
