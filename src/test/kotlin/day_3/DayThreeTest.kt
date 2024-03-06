@@ -9,7 +9,7 @@ import kotlin.io.path.exists
 
 class DayThreeTest {
 
-    private val path = "src\\main\\kotlin\\day_3\\PuzzleInput.txt"
+    private val path = "src\\resources\\Day3PuzzleInput.txt"
     private val data = FileReader.read(path)
 
 
@@ -25,7 +25,7 @@ class DayThreeTest {
     }
 
     private fun testSlope(right: Int, down: Int): Long {
-        val testMap = FileReader.read("src\\test\\kotlin\\day_3\\TestInput.txt")
+        val testMap = FileReader.read("src\\test\\resources\\Day3Input.txt")
         val length = testMap[0].length
         var treeCounter = 0L
         var j = 0

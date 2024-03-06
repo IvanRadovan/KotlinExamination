@@ -3,7 +3,7 @@ package day_5
 
 fun main() {
 
-    val path = "src\\main\\kotlin\\day_5\\PuzzleInput"
+    val path = "src\\resources\\Day5PuzzleInput.txt"
     val list = FileReader.read(path).map { it.seatId() }.sorted()
 
     val highestId = list[list.size - 1]

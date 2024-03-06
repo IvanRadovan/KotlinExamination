@@ -10,7 +10,7 @@ import kotlin.io.path.exists
 
 class DayTwoTest {
 
-    private val path = "src\\main\\kotlin\\day_2\\PuzzleInput.txt"
+    private val path = "src\\resources\\Day2PuzzleInput.txt"
     private val data = FileReader.read(path)
     private val inputTest = "6-14 f: fffdxmfffjfffmffff"
     private val startTest = 6

@@ -1,13 +1,15 @@
 import java.io.File
 
+// https://todd.ginsberg.com/post/advent-of-code/2020/day4/
+
 class DayFourEnhanced() {
 
-    private val input: String = File("src\\main\\kotlin\\day_4\\PuzzleInput.txt")
+    private val input: String = File("src\\resources\\Day4PuzzleInput.txt")
             .bufferedReader()
             .readText()
             .trimIndent()
 
-    private val inputs: List<String> = input.split("\n\n")
+     val inputs: List<String> = input.split("\n\n")
 
     private val keyFields = listOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
 

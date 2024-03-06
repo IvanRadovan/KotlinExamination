@@ -10,7 +10,7 @@ fun main() {
 
 }
 
-fun puzzleInput(): List<Int> = FileReader.read("src\\main\\kotlin\\day_1\\PuzzleInput.txt").map { it.toInt() }
+fun puzzleInput(): List<Int> = FileReader.read("src\\resources\\Day1PuzzleInput.txt").map { it.toInt() }
 
 fun getProduct(list: List<Int>): Int {
     for (i in list.indices) {

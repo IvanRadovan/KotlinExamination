@@ -9,7 +9,7 @@ fun main() {
     println(validPasswordCountPartTwo())
 }
 
-fun puzzleInput(): List<String> = FileReader.read("src\\main\\kotlin\\day_2\\PuzzleInput.txt")
+fun puzzleInput(): List<String> = FileReader.read("src\\resources\\Day2PuzzleInput.txt")
 
 fun validPasswordCount(): Int {
     val lines = puzzleInput()

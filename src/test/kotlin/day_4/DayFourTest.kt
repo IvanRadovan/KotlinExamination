@@ -3,14 +3,13 @@ package day_4
 import FileReader
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import java.io.File
 import java.util.regex.Pattern
 
 class DayFourTest {
 
-    private val testPath = "src\\test\\kotlin\\day_4\\TestInput"
-    private val pathInvalidData = "src\\test\\kotlin\\day_4\\InvalidInput"
-    private val pathValidData = "src\\test\\kotlin\\day_4\\ValidInput"
+    private val testPath = "src\\test\\resources\\Day4TestInput.txt"
+    private val pathInvalidData = "src\\test\\resources\\Day4InvalidInput.txt"
+    private val pathValidData = "src\\test\\resources\\Day4ValidInput.txt"
 
     private val testData = FileReader.read(testPath)
     private val invalidData = FileReader.read(pathInvalidData)

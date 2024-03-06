@@ -10,7 +10,7 @@ import kotlin.io.path.exists
 
 class DayOneTest {
 
-    private val path = "src\\main\\kotlin\\day_1\\PuzzleInput.txt"
+    private val path = "src\\resources\\Day1PuzzleInput.txt"
     private val list = FileReader.read(path).map { it.toInt() }
     private val sum = 2020
 

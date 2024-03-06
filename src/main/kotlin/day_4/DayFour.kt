@@ -8,7 +8,7 @@ fun main() {
     println(countValidPassportsPartTwo(getDataInSequence(puzzleInput())))
 }
 
-fun puzzleInput(): List<String> = FileReader.read("src\\main\\kotlin\\day_4\\PuzzleInput.txt")
+fun puzzleInput(): List<String> = FileReader.read("src\\resources\\Day4PuzzleInput.txt")
 
 fun getDataInSequence(list: List<String>): List<String> {
     var startSequencer = 0
