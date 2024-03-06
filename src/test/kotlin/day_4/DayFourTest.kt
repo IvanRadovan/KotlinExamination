@@ -3,6 +3,7 @@ package day_4
 import FileReader
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import java.io.File
 import java.util.regex.Pattern
 
 class DayFourTest {

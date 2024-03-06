@@ -7,6 +7,9 @@ fun main() {
     println(countTrees())
 }
 
+private operator fun Pair<Int,Int>.plus(that: Pair<Int,Int>): Pair<Int,Int> =
+        Pair(this.first+that.first, this.second+that.second)
+
 fun puzzleInput(): List<String> = FileReader.read("src\\main\\kotlin\\day_3\\PuzzleInput.txt")
 
 fun countTrees(): Int {
