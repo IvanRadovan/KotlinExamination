@@ -1,19 +1,20 @@
+package day_4
+
 import java.io.File
 
 // https://todd.ginsberg.com/post/advent-of-code/2020/day4/
 
-class DayFourEnhanced() {
+class DayFourEnhanced {
 
-    private val input: String = File("src\\resources\\Day4PuzzleInput.txt")
+     val inputs: List<String> = File("src\\resources\\Day4PuzzleInput.txt")
             .bufferedReader()
             .readText()
             .trimIndent()
-
-     val inputs: List<String> = input.split("\n\n")
+            .split("\n\n")
 
     private val keyFields = listOf("byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid")
 
-    private val fieldPatterns = listOf(
+    private val fieldRegexOption = listOf(
             """\bbyr:(19[2-9][0-9]|200[0-2])\b""",
             """\biyr:(201[0-9]|2020)\b""",
             """\beyr:(202[0-9]|2030)\b""",
@@ -23,10 +24,9 @@ class DayFourEnhanced() {
             """\bpid:[0-9]{9}\b"""
     ).map { it.toRegex() }
 
-    fun getRequiredFieldCount(): Int = inputs.count { e -> keyFields.all { e.contains(it)} }
+    fun getRequiredFieldCount(): Int = inputs.count { e -> keyFields.all { f -> e.contains(f) } }
 
-    fun getValidPassportCount(): Int = inputs.count { e -> fieldPatterns.all { it.containsMatchIn(e) } }
-
+    fun getValidPassportCount(): Int = inputs.count { e -> fieldRegexOption.all { it.containsMatchIn(e) } }
 }
 
 fun main() {
